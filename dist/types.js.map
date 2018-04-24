@@ -1,1 +1,0 @@
-{"version":3,"file":"types.js","sourceRoot":"","sources":["../src/types.ts"],"names":[],"mappings":"","sourcesContent":["import { LoggerInstance } from 'winston'\n\ndeclare global {\n\texport interface Logger extends LoggerInstance {\n\n\t}\n}"]}

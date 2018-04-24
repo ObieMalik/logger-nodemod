@@ -1,3 +1,3 @@
-let logger = require('./dist/logger')
+const logger = require('./dist/logger')
 
 global['logger'] = logger.logger
