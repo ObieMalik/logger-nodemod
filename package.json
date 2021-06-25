@@ -1,29 +1,41 @@
 {
-  "name": "@bazook/logger",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "lib": "src"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@types/winston": "^2.3.9",
-    "chalk": "^1.1.3",
-    "morgan": "^1.9.0",
-    "winston": "^2.4.0"
-  },
-  "devDependencies": {
-    "grunt": "^1.0.2",
-    "grunt-contrib-jshint": "^1.0.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-ts": "^6.0.0-beta.17",
-    "grunt-tslint": "^4.0.0",
-    "tslint": "^4.3.1",
-    "typescript": "^2.7.2"
-  }
+    "name": "@om-node/logger",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "directories": {
+        "lib": "src"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Obie Malik",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^4.1.1",
+        "morgan": "^1.9.0",
+        "winston": "^3.3.3"
+    },
+    "devDependencies": {
+        "@types/jest": "^26.0.23",
+        "@typescript-eslint/eslint-plugin": "^4.28.0",
+        "@typescript-eslint/parser": "^4.28.0",
+        "eslint": "^7.29.0",
+        "fs": "^0.0.1-security",
+        "grunt": "^1.0.2",
+        "grunt-contrib-jshint": "^3.0.0",
+        "grunt-contrib-watch": "^1.0.0",
+        "grunt-eslint": "^23.0.0",
+        "grunt-run": "^0.8.1",
+        "grunt-ts": "^6.0.0-beta.17",
+        "jest": "^27.0.5",
+        "ts-jest": "^27.0.3",
+        "tslint": "^6.1.3",
+        "typescript": "^4.3.4",
+        "typescript-eslint": "^0.0.1-alpha.0"
+    }
 }
