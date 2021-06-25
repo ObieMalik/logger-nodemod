@@ -47,6 +47,10 @@
             "error",
             "1tbs"
         ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
         "eqeqeq": [
             "error",
             "smart"
@@ -70,6 +74,10 @@
         "no-trailing-spaces": "off",
         "no-underscore-dangle": "error",
         "no-var": "error",
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
         "quotes": "error",
         "semi": "off",
         "spaced-comment": [

@@ -1,4 +1,4 @@
-import {logger} from '../dist/index'
+import { logger } from '../dist/index'
 import * as fs from 'fs'
 
 beforeAll( async () => {
@@ -16,16 +16,16 @@ describe( 'logger.info', () => {
     it( 'should be able to log info to "all.log" file', async () => {
         const data = await fs.promises.readFile( 'logs/all.log', 'utf8' )
 
-        expect( data ).toEqual(
-            expect.stringContaining( 'Test run log information using winston logger.' ),
-        )
+        expect( data ).toEqual( expect.stringContaining(
+            'Test run log information using winston logger.'
+        ) )
     } )
 
     it( 'should NOT be able to log info to "error.log" file', async () => {
         const data = await fs.promises.readFile( 'logs/error.log', 'utf8' )
 
-        expect( data ).toEqual(
-            expect.not.stringContaining( 'Test run log information using winston logger.' ),
-        )
+        expect( data ).toEqual( expect.not.stringContaining(
+            'Test run log information using winston logger.'
+        ) )
     } )
 } )
