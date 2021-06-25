@@ -3,7 +3,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-ts");
-	grunt.loadNpmTasks("grunt-run")
+	grunt.loadNpmTasks("grunt-run");
 
 	grunt.initConfig({
 		concat: {
@@ -23,18 +23,6 @@ module.exports = function (grunt) {
 				files: {
 					'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
 				}
-			}
-		},
-		jshint: {
-			files: [
-				'Gruntfile.js',
-				'package.json',
-				'src/server.js',
-				'lib/**/*.js',
-				'src/**/*.js'
-			],
-			options: {
-				jshintrc: '.jshintrc'
 			}
 		},
 		eslint: {
