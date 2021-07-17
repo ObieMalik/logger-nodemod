@@ -1,5 +1,5 @@
 {
-    "name": "@om-node/logger",
+    "name": "@mo-node/logger",
     "version": "1.0.0",
     "description": "",
     "main": "dist/src/index.js",
