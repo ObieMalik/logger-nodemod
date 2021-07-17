@@ -1,62 +1,43 @@
-import * as winston from 'winston'
+import * as Winston from 'winston'
 
-const levels = {
-    error: 0,
-    warn: 1,
-    info: 2,
-    http: 3,
-    debug: 4
-}
+import { LoggerConfiguration } from './logger.config'
 
-const level = () => {
-    const env = process.env.NODE_ENV || 'development'
+/**
+ * Logger
+ */
+export class Logger {
+    private static _instance: Winston.Logger
 
-    if ( env === 'development' ) {
-        return 'debug'
+    /**
+     * Build logger Configuration
+     * @param {Winston.LoggerOptions} options Winston logger options
+     */
+    constructor(
+        private options: Winston.LoggerOptions = {
+            level: LoggerConfiguration.level,
+            levels: LoggerConfiguration.levels,
+            format: LoggerConfiguration.format,
+            transports: LoggerConfiguration.transports
+        }
+    ) {
+
     }
 
-    if ( env === 'production' ) {
-        return 'warn'
+    /**
+     * Get instance of winston logger
+     */
+    public get instance(): Winston.Logger {
+        if (!Logger._instance)
+            Logger._instance = this.createInstance()
+        return Logger._instance
     }
 
-    return 'info'
+    /**
+     * Create a new instance of winston logger
+     * @return {Winston.Logger} Instance
+     */
+    public createInstance(): Winston.Logger {
+        Winston.addColors(LoggerConfiguration.colors)
+        return Winston.createLogger(this.options)
+    }
 }
-
-const colors = {
-    error: 'red',
-    warn: 'yellow',
-    info: 'green',
-    http: 'magenta',
-    debug: 'white'
-}
-
-winston.addColors( colors )
-
-const format = winston.format.combine(
-    winston.format.timestamp( { format: 'YYYY-MM-DD HH:mm:ss:ms' } ),
-    winston.format.colorize( { all: true } ),
-    winston.format.printf(
-        ( info ) => `${info.timestamp} ${info.level}: ${info.message}`
-    )
-)
-
-const transports = [
-    new winston.transports.Console(),
-    new winston.transports.File( {
-        filename: 'logs/error.log',
-        level: 'warn'
-    } ),
-    new winston.transports.File( {
-        filename: 'logs/all.log',
-        level: 'debug'
-    } )
-]
-
-const logger = winston.createLogger( {
-    level: level(),
-    levels,
-    format,
-    transports
-} )
-
-export { logger }

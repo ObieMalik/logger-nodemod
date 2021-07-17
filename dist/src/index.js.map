@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/index.ts"],"names":[],"mappings":";;;AAAA,qCAAiC;AAG7B,uFAHK,eAAM,OAGL","sourcesContent":["import { logger } from './logger'\n\nexport {\n    logger\n}\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/index.ts"],"names":[],"mappings":";;;AAAA,qCAAiC;AAEjC,MAAM,MAAM,GAAG,IAAI,eAAM,EAAE,CAAC,QAAQ,CAAA;AAGhC,wBAAM","sourcesContent":["import { Logger } from './logger'\n\nconst logger = new Logger().instance\n\nexport {\n    logger\n}"]}

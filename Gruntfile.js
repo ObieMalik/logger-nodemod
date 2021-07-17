@@ -1,5 +1,6 @@
+const { registerTask } = require("grunt");
+
 module.exports = function (grunt) {
-	grunt.loadNpmTasks("grunt-contrib-jshint");
 	grunt.loadNpmTasks("grunt-contrib-watch");
 	grunt.loadNpmTasks("grunt-eslint");
 	grunt.loadNpmTasks("grunt-ts");
@@ -67,11 +68,16 @@ module.exports = function (grunt) {
 		}
 	});
 
-	grunt.registerTask("default", [
+	grunt.registerTask("watch", [
 		"eslint",
 		"ts:build",
 		"run:test",
 		"watch"
+	]);
+
+	grunt.registerTask("build", [
+		"eslint",
+		"ts:build"
 	]);
 
 	grunt.registerTask("test", [

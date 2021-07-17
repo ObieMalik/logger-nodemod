@@ -1,7 +1,5 @@
 {
     "env": {
-        "browser": true,
-        "commonjs": true,
         "es2021": true
     },
     "extends": [
@@ -51,6 +49,19 @@
             "error",
             "never"
         ],
+        "computed-property-spacing": [
+            "error",
+            "always"
+        ],
+        "curly": [
+            "warn",
+            "multi",
+            "consistent"
+        ],
+        "eol-last": [
+            "error",
+            "never"
+        ],
         "eqeqeq": [
             "error",
             "smart"
@@ -72,14 +83,23 @@
         "no-eval": "error",
         "no-redeclare": "error",
         "no-trailing-spaces": "off",
-        "no-underscore-dangle": "error",
+        "no-underscore-dangle": "off",
         "no-var": "error",
         "object-curly-spacing": [
             "error",
             "always"
         ],
+        
         "quotes": "error",
         "semi": "off",
+        "space-before-function-paren": [
+            "error",
+            {
+                "anonymous": "always",
+                "named": "never",
+                "asyncArrow": "always"
+            }
+        ],
         "spaced-comment": [
             "error",
             "always",

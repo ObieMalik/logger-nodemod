@@ -1,49 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.logger = void 0;
-const winston = require("winston");
-const levels = {
-    error: 0,
-    warn: 1,
-    info: 2,
-    http: 3,
-    debug: 4
-};
-const level = () => {
-    const env = process.env.NODE_ENV || 'development';
-    if (env === 'development') {
-        return 'debug';
+exports.Logger = void 0;
+const Winston = require("winston");
+const logger_config_1 = require("./logger.config");
+class Logger {
+    constructor(options = {
+        level: logger_config_1.LoggerConfiguration.level,
+        levels: logger_config_1.LoggerConfiguration.levels,
+        format: logger_config_1.LoggerConfiguration.format,
+        transports: logger_config_1.LoggerConfiguration.transports
+    }) {
+        this.options = options;
     }
-    if (env === 'production') {
-        return 'warn';
+    get instance() {
+        if (!Logger._instance)
+            Logger._instance = this.createInstance();
+        return Logger._instance;
     }
-    return 'info';
-};
-const colors = {
-    error: 'red',
-    warn: 'yellow',
-    info: 'green',
-    http: 'magenta',
-    debug: 'white'
-};
-winston.addColors(colors);
-const format = winston.format.combine(winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss:ms' }), winston.format.colorize({ all: true }), winston.format.printf((info) => `${info.timestamp} ${info.level}: ${info.message}`));
-const transports = [
-    new winston.transports.Console(),
-    new winston.transports.File({
-        filename: 'logs/error.log',
-        level: 'warn'
-    }),
-    new winston.transports.File({
-        filename: 'logs/all.log',
-        level: 'debug'
-    })
-];
-const logger = winston.createLogger({
-    level: level(),
-    levels,
-    format,
-    transports
-});
-exports.logger = logger;
+    createInstance() {
+        Winston.addColors(logger_config_1.LoggerConfiguration.colors);
+        return Winston.createLogger(this.options);
+    }
+}
+exports.Logger = Logger;
 //# sourceMappingURL=logger.js.map

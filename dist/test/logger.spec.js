@@ -20,6 +20,19 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
         console.error(err);
     }
 }));
+afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
+    console.log('Cleaning up...');
+    try {
+        yield fs.promises.rm('logs', {
+            recursive: true,
+            force: true
+        });
+        console.log('done.');
+    }
+    catch (err) {
+        console.error(err);
+    }
+}));
 describe('logger.info', () => {
     index_1.logger.info('Test run log information using winston logger.');
     it('should be able to log info to "all.log" file', () => __awaiter(void 0, void 0, void 0, function* () {
