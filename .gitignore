@@ -47,8 +47,3 @@ jspm_packages
 
 # cache
 .tscache
-
-!**/install/**/*
-!**/build/**/*.*
-!**/Gruntfile.js
-!**/test/**/*.js

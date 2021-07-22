@@ -1,4 +1,4 @@
-import { logger } from '../dist/index'
+import { logger } from '../src/index'
 
 import * as fs from 'fs'
 
@@ -17,8 +17,7 @@ afterAll(async () => {
             recursive: true,
             force: true
         })
-    }
-    catch (err) {
+    } catch (err) {
         console.error(err)
     }
 })

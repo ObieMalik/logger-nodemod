@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const index_1 = require("../dist/index");
+const index_1 = require("../src/index");
 const fs = require("fs");
 beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -21,13 +21,11 @@ beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
     }
 }));
 afterAll(() => __awaiter(void 0, void 0, void 0, function* () {
-    console.log('Cleaning up...');
     try {
         yield fs.promises.rm('logs', {
             recursive: true,
             force: true
         });
-        console.log('done.');
     }
     catch (err) {
         console.error(err);

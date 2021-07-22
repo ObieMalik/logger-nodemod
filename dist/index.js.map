@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../src/index.ts"],"names":[],"mappings":";;;AAAA,qCAAiC;AAGhC,uFAHQ,eAAM,OAGR","sourcesContent":["import { logger } from './logger'\n\nexport {\n\tlogger\n}"]}
